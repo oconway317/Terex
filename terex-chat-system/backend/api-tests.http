@@ -1,0 +1,43 @@
+### Test backend connection
+GET http://localhost:5000/api/test
+
+###
+
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "Test Dealer",
+  "email": "testdealer@terexchat.local",
+  "password": "Password123!",
+  "role_id": 3,
+  "dealer_id": 2
+}
+
+###
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testdealer@terexchat.local",
+  "password": "Password123!"
+}
+
+###
+
+### Get current user
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJlbWFpbCI6InRlc3RkZWFsZXJAdGVyZXhjaGF0LmxvY2FsIiwicm9sZV9pZCI6Mywicm9sZV9uYW1lIjoiZGVhbGVyX3VzZXIiLCJkZWFsZXJfaWQiOjIsImlhdCI6MTc3MzQwODM3OSwiZXhwIjoxNzczNDExOTc5fQ.-gD5JpWNaNCzA6koN6BuOndPOdNlI7rslwcp_uqxn90
+
+### Create a message in channel 1
+POST http://localhost:5000/api/channels/1/messages
+Content-Type: application/json
+
+{
+  "sender_id": 1,
+  "message_text": "Hello from the Terex chat backend",
+  "message_type": "text"
+}
